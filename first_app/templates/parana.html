@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algumas cidades do Paraná para serem visitados</title>
+    {{parana}}
+    <!--Link para CSS -->
+    <link rel="stylesheet" href=".css">
+    <link rel="stylesheet" type=".css" href="{% static "first_app\img\noise.png" %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+
+    <!--Rever depois-->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand brand-space" href="#"><img src="{% static "first_app/img/Bandeira_do_Parana.png" %}" alt="Paraná">
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Turismo</a></li>
+            <li><a href="#">Shopping</a></li>
+            <li><a href="#">Restaurantes</a></li>
+          </ul>
+        </div>
+    </nav>
+  <!--Rever depois-->
+
+  <!--Menus da parte superior-->
+  <div class="jumbotron">
+    <h1>Locais turisticos do Paraná</h1>
+    <p>Esta pagina oferece lugares para você visitar no Paraná.</p>
+    <p>Existem informações abaixo sobre as cidades, fotos, entre outros.
+    </p>
+  </div>
+
+ <!--Cards-->
+ <div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <img src="{% static "first_app\img\Curitiba.jpg" %}">
+        <h3>Cidade de Curitiba</h3>
+        <p>Curitiba é um município brasileiro, capital do estado do Paraná, localizado a 934 metros de altitude no Primeiro Planalto Paranaense,
+          a mais de 110 quilômetros do Oceano Atlântico, distante 1 386 km a sul de Brasília, capital federal. 
+          Fundado em 1693, a partir de um pequeno povoado bandeirante, Curitiba tornou-se uma importante parada comercial com a abertura da estrada tropeira entre Sorocaba e Viamão,
+          vindo, em 1853, a ser a capital da recém-emancipada Província do Paraná.</p>
+        <button class="btn-more">Ver mais fotos</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static "first_app\img\Foz do Iguaçu.png" %}">
+        <h3>Cidade de Foz do Iguaçu</h3>
+        <p> Foz do Iguaçu é o terceiro destino de turistas estrangeiros no paíse o primeiro da região sul. 
+          Conhecida internacionalmente pelas Cataratas do Iguaçu, uma das vencedoras do concurso que escolheu as 7 Maravilhas da Natureza, 
+          e pela Usina Hidrelétrica de Itaipu, a segunda maior do mundo em tamanho e primeira em geração de energia, 
+          que em 1996 foi considerada uma das 7 Maravilhas do Mundo Moderno pela Sociedade Americana de Engenheiros Civis.</p>
+        <button class="btn-more">Ver mais fotos</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <img src="{% static "first_app\img\Guaratuaba.png" %}">
+        <h3>Cidade de Guaratuaba</h3>
+        <p>A baía de Guaratuba está situada no litoral sul do Estado brasileiro do Paraná. É a segunda maior do estado depois da baía de Paranaguá.
+          Existem várias ilhas na baía, entre as quais pode-se citar a ilha do Capim e a ilha da Sepultura.
+          É através desta baía que se acessa o Balneário de Guaratuba. através de uma balsa (ferry-boat) que transporta veículos e passageiros.</p>
+        <button class="btn-more">Ver mais fotos</button>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static "first_app\img\Maringa.png" %}">
+        <h3>Cidade de Maringá
+        </h3>
+        <p>Maringá é um município brasileiro do estado do Paraná, sendo uma cidade média-grande planejada e de urbanização recente. 
+          É a terceira maior do estado e a sétima da região sul do Brasil em relação a sua população, 
+          destacando-se pela qualidade de vida oferecida a seus moradores e por ser um importante entroncamento rodoviário regional. 
+          É considerada uma das cidades mais arborizadas e limpas do país.</p>
+        <button class="btn-more">Ver mais fotos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <table>
+    <h3>Informações sobre as cidades</h3>
+    <tr>
+      <th>Cidade</th>
+      <th>Fundação</th>
+    </tr>
+    <tr>
+      <td>Curitiba</td>
+      <td>1693</td>
+    </tr>
+    <tr>
+      <td>Foz do Iguaçu</td>
+      <td>1914</td>
+    </tr>
+    <tr>
+      <td>Maringá</td>
+      <td>1947</td>
+    </tr>
+  </table>  
+  
+    <!--Rodapé-->
+    <footer>
+        <h5>HTML desenvolvido pelo Eric Yuji Ikeda</h5>
+    </footer>
+
+    
