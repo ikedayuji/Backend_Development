@@ -27,14 +27,6 @@ def formulario_simples(request):
             print("Text"+form.cleaned_data['text'])
     return render(request,'form_simples.html',{'form':form})
 
-def user(request):
-    form = form.Moveis(request.POST)
-    
-    if form.is_valid():
-        form.save(commit=True)
-        return index(request)
-    else:
-        print('ERROR FORM INVALID')
+
         
-    return render(request, 'form_simples.html',{'form':form})
     
