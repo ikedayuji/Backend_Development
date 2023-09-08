@@ -9,11 +9,18 @@
     {{parana}}
     <!--Link para CSS -->
     <link rel="stylesheet" href=".css">
-    <link rel="stylesheet" type=".css" href="{% static "first_app\img\noise.png" %}"/>
+    <link rel="stylesheet" type=".css" href="{% static "first_app\img\noise.png" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'parana.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+    <style>
+      /* Estilo personalizado para centralizar o popup */
+      .modal-dialog {
+        text-align: center;
+        margin: 20px auto;
+      }
+    </style>
 </head>
 <body>
 
@@ -21,7 +28,7 @@
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand brand-space" href="#"><img src="{% static "first_app/img/Bandeira_do_Parana.png" %}" alt="Paraná">
+            <a class="navbar-brand brand-space" href="#"><img src="{% static "first_app/img/Bandeira_do_Parana.png" %}" alt="Paraná"></a>
           </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Turismo</a></li>
@@ -35,9 +42,8 @@
   <!--Menus da parte superior-->
   <div class="jumbotron">
     <h1>Locais turisticos do Paraná</h1>
-    <p>Esta pagina oferece lugares para você visitar no Paraná.</p>
-    <p>Existem informações abaixo sobre as cidades, fotos, entre outros.
-    </p>
+    <p>Esta página oferece lugares para você visitar no Paraná.</p>
+    <p>Existem informações abaixo sobre as cidades, fotos, entre outros.</p>
   </div>
 
  <!--Cards-->
@@ -47,22 +53,18 @@
       <div class="card">
         <img src="{% static "first_app\img\Curitiba.jpg" %}">
         <h3>Cidade de Curitiba</h3>
-        <p>Curitiba é um município brasileiro, capital do estado do Paraná, localizado a 934 metros de altitude no Primeiro Planalto Paranaense,
-          a mais de 110 quilômetros do Oceano Atlântico, distante 1 386 km a sul de Brasília, capital federal. 
-          Fundado em 1693, a partir de um pequeno povoado bandeirante, Curitiba tornou-se uma importante parada comercial com a abertura da estrada tropeira entre Sorocaba e Viamão,
-          vindo, em 1853, a ser a capital da recém-emancipada Província do Paraná.</p>
-        <button class="btn-more">Ver mais fotos</button>
+        <p class="short-description">Curitiba é um município brasileiro, capital do estado do Paraná, localizado a 934 metros de altitude no Primeiro Planalto Paranaense, a mais de 110 quilômetros do Oceano Atlântico, distante 1 386 km a sul de Brasília, capital federal.</p>
+        <p class="full-description" style="display: none;">Fundado em 1693, a partir de um pequeno povoado bandeirante, Curitiba tornou-se uma importante parada comercial com a abertura da estrada tropeira entre Sorocaba e Viamão, vindo, em 1853, a ser a capital da recém-emancipada Província do Paraná.</p>
+        <button class="btn-more" data-toggle="modal" data-target="#curitibaModal">Ver mais fotos</button>
       </div>
     </div>
     <div class="col">
       <div class="card">
         <img src="{% static "first_app\img\Foz do Iguaçu.png" %}">
         <h3>Cidade de Foz do Iguaçu</h3>
-        <p> Foz do Iguaçu é o terceiro destino de turistas estrangeiros no paíse o primeiro da região sul. 
-          Conhecida internacionalmente pelas Cataratas do Iguaçu, uma das vencedoras do concurso que escolheu as 7 Maravilhas da Natureza, 
-          e pela Usina Hidrelétrica de Itaipu, a segunda maior do mundo em tamanho e primeira em geração de energia, 
-          que em 1996 foi considerada uma das 7 Maravilhas do Mundo Moderno pela Sociedade Americana de Engenheiros Civis.</p>
-        <button class="btn-more">Ver mais fotos</button>
+        <p class="short-description">Foz do Iguaçu é o terceiro destino de turistas estrangeiros no país e o primeiro da região sul.</p>
+        <p class="full-description" style="display: none;">Conhecida internacionalmente pelas Cataratas do Iguaçu, uma das vencedoras do concurso que escolheu as 7 Maravilhas da Natureza, e pela Usina Hidrelétrica de Itaipu, a segunda maior do mundo em tamanho e primeira em geração de energia, que em 1996 foi considerada uma das 7 Maravilhas do Mundo Moderno pela Sociedade Americana de Engenheiros Civis.</p>
+        <button class="btn-more" data-toggle="modal" data-target="#fozDoIguacuModal">Ver mais fotos</button>
       </div>
     </div>
   </div>
@@ -71,22 +73,18 @@
       <div class="card">
         <img src="{% static "first_app\img\Guaratuaba.png" %}">
         <h3>Cidade de Guaratuaba</h3>
-        <p>A baía de Guaratuba está situada no litoral sul do Estado brasileiro do Paraná. É a segunda maior do estado depois da baía de Paranaguá.
-          Existem várias ilhas na baía, entre as quais pode-se citar a ilha do Capim e a ilha da Sepultura.
-          É através desta baía que se acessa o Balneário de Guaratuba. através de uma balsa (ferry-boat) que transporta veículos e passageiros.</p>
-        <button class="btn-more">Ver mais fotos</button>
+        <p class="short-description">A baía de Guaratuba está situada no litoral sul do Estado brasileiro do Paraná. É a segunda maior do estado depois da baía de Paranaguá.</p>
+        <p class="full-description" style="display: none;">Existem várias ilhas na baía, entre as quais pode-se citar a ilha do Capim e a ilha da Sepultura. É através desta baía que se acessa o Balneário de Guaratuba, através de uma balsa (ferry-boat) que transporta veículos e passageiros.</p>
+        <button class="btn-more" data-toggle="modal" data-target="#guaratuabaModal">Ver mais fotos</button>
       </div>
     </div>
     <div class="col">
       <div class="card">
         <img src="{% static "first_app\img\Maringa.png" %}">
-        <h3>Cidade de Maringá
-        </h3>
-        <p>Maringá é um município brasileiro do estado do Paraná, sendo uma cidade média-grande planejada e de urbanização recente. 
-          É a terceira maior do estado e a sétima da região sul do Brasil em relação a sua população, 
-          destacando-se pela qualidade de vida oferecida a seus moradores e por ser um importante entroncamento rodoviário regional. 
-          É considerada uma das cidades mais arborizadas e limpas do país.</p>
-        <button class="btn-more">Ver mais fotos</button>
+        <h3>Cidade de Maringá</h3>
+        <p class="short-description">Maringá é um município brasileiro do estado do Paraná, sendo uma cidade média-grande planejada e de urbanização recente.</p>
+        <p class="full-description" style="display: none;">É a terceira maior do estado e a sétima da região sul do Brasil em relação à sua população, destacando-se pela qualidade de vida oferecida a seus moradores e por ser um importante entroncamento rodoviário regional. É considerada uma das cidades mais arborizadas e limpas do país.</p>
+        <button class="btn-more" data-toggle="modal" data-target="#maringaModal">Ver mais fotos</button>
       </div>
     </div>
   </div>
@@ -110,11 +108,204 @@
       <td>Maringá</td>
       <td>1947</td>
     </tr>
-  </table>  
-  
-    <!--Rodapé-->
-    <footer>
-        <h5>HTML desenvolvido pelo Eric Yuji Ikeda</h5>
-    </footer>
+  </table>
 
-    
+  <!--Rodapé-->
+  <footer>
+    <h5>HTML desenvolvido por Eric Yuji Ikeda</h5>
+  </footer>
+
+  <!-- Modais para as fotos -->
+  <!-- Modal de Curitiba -->
+  <div class="modal fade" id="curitibaModal" tabindex="-1" role="dialog" aria-labelledby="curitibaModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="curitibaImageCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+              <li data-target="#curitibaImageCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#curitibaImageCarousel" data-slide-to="1"></li>
+              <li data-target="#curitibaImageCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{% static "first_app\img\Curitiba1.jpg" %}" alt="Curitiba 1">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Curitiba2.jpg" %}" alt="Curitiba 2">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Curitiba3.jpg" %}" alt="Curitiba 3">
+              </div>
+            </div>
+            <!-- Controles -->
+            <a class="left carousel-control" href="#curitibaImageCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#curitibaImageCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- Descrição completa -->
+          <div class="full-description">
+            <p>Curitiba é um município brasileiro, capital do estado do Paraná, localizado a 934 metros de altitude no Primeiro Planalto Paranaense, a mais de 110 quilômetros do Oceano Atlântico, distante 1 386 km a sul de Brasília, capital federal. Fundado em 1693, a partir de um pequeno povoado bandeirante, Curitiba tornou-se uma importante parada comercial com a abertura da estrada tropeira entre Sorocaba e Viamão, vindo, em 1853, a ser a capital da recém-emancipada Província do Paraná.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Foz do Iguaçu -->
+  <div class="modal fade" id="fozDoIguacuModal" tabindex="-1" role="dialog" aria-labelledby="fozDoIguacuModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="fozDoIguacuImageCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+              <li data-target="#fozDoIguacuImageCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#fozDoIguacuImageCarousel" data-slide-to="1"></li>
+              <li data-target="#fozDoIguacuImageCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{% static "first_app\img\FozDoIguacu1.jpg" %}" alt="Foz do Iguaçu 1">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\FozDoIguacu2.jpg" %}" alt="Foz do Iguaçu 2">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\FozDoIguacu3.jpg" %}" alt="Foz do Iguaçu 3">
+              </div>
+            </div>
+            <!-- Controles -->
+            <a class="left carousel-control" href="#fozDoIguacuImageCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#fozDoIguacuImageCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- Descrição completa -->
+          <div class="full-description">
+            <p>Foz do Iguaçu é o terceiro destino de turistas estrangeiros no país e o primeiro da região sul. Conhecida internacionalmente pelas Cataratas do Iguaçu, uma das vencedoras do concurso que escolheu as 7 Maravilhas da Natureza, e pela Usina Hidrelétrica de Itaipu, a segunda maior do mundo em tamanho e primeira em geração de energia, que em 1996 foi considerada uma das 7 Maravilhas do Mundo Moderno pela Sociedade Americana de Engenheiros Civis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Guaratuaba -->
+  <div class="modal fade" id="guaratuabaModal" tabindex="-1" role="dialog" aria-labelledby="guaratuabaModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="guaratuabaImageCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+              <li data-target="#guaratuabaImageCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#guaratuabaImageCarousel" data-slide-to="1"></li>
+              <li data-target="#guaratuabaImageCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{% static "first_app\img\Guaratuaba1.jpg" %}" alt="Guaratuaba 1">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Guaratuaba2.jpg" %}" alt="Guaratuaba 2">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Guaratuaba3.jpg" %}" alt="Guaratuaba 3">
+              </div>
+            </div>
+            <!-- Controles -->
+            <a class="left carousel-control" href="#guaratuabaImageCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#guaratuabaImageCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- Descrição completa -->
+          <div class="full-description">
+            <p>A baía de Guaratuba está situada no litoral sul do Estado brasileiro do Paraná. É a segunda maior do estado depois da baía de Paranaguá. Existem várias ilhas na baía, entre as quais pode-se citar a ilha do Capim e a ilha da Sepultura. É através desta baía que se acessa o Balneário de Guaratuba, através de uma balsa (ferry-boat) que transporta veículos e passageiros.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Maringá -->
+  <div class="modal fade" id="maringaModal" tabindex="-1" role="dialog" aria-labelledby="maringaModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="maringaImageCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+              <li data-target="#maringaImageCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#maringaImageCarousel" data-slide-to="1"></li>
+              <li data-target="#maringaImageCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="{% static "first_app\img\Maringa1.jpg" %}" alt="Maringá 1">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Maringa2.jpg" %}" alt="Maringá 2">
+              </div>
+              <div class="item">
+                <img src="{% static "first_app\img\Maringa3.jpg" %}" alt="Maringá 3">
+              </div>
+            </div>
+            <!-- Controles -->
+            <a class="left carousel-control" href="#maringaImageCarousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#maringaImageCarousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- Descrição completa -->
+          <div class="full-description">
+            <p>Maringá é um município brasileiro do estado do Paraná, sendo uma cidade média-grande planejada e de urbanização recente. É a terceira maior do estado e a sétima da região sul do Brasil em relação à sua população, destacando-se pela qualidade de vida oferecida a seus moradores e por ser um importante entroncamento rodoviário regional. É considerada uma das cidades mais arborizadas e limpas do país.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mostra a descrição completa ao clicar em "Ver mais fotos"
+    $(".btn-more").click(function() {
+      $(this).prev(".short-description").hide();
+      $(this).next(".full-description").show();
+    });
+  </script>
+</body>
+</html>
