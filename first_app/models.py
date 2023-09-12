@@ -17,3 +17,10 @@ class AccessRecord(models.Model):
     def __str__(self):
         return str(self.date)
     
+class Movel(models.Model):
+    name = models.CharField(max_length=100)
+    preco = models.DecimalField(decimal_places=2)
+
+    def __str__(self):
+        return self.name
+    

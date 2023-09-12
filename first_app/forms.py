@@ -1,5 +1,6 @@
 from django import forms
 from django.core import validators
+from .models import Movel
 
 def check_for_z(value):
         if value[0].lower() !='z':
@@ -17,4 +18,9 @@ class ForName(forms.Form):
                         if len(botcatcher) > 0:
                                 raise forms.ValidationError("GOTCHA BOT!")
                         return botcatcher
-        
+
+class movelform(forms.ModelForm):
+
+        class Meta:
+                model = Movel
+                fields ='__all__'

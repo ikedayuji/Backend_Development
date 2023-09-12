@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ForName
+from .forms import movelform
+
 
 
 def index(request):
@@ -27,6 +29,18 @@ def formulario_simples(request):
             print("Text"+form.cleaned_data['text'])
     return render(request,'form_simples.html',{'form':form})
 
+def formulario_movel(request):
+    form = movelform()
+    
+    if request.method == 'POST':
+        
+        form = form.movelform(request.POST)
+        if form.is_valid():
+            form.save
+        else:
+            print("Deu erro")
+            
+    return render(request,'form_simples.html',{'form':form})
 
         
     
