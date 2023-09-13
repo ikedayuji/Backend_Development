@@ -4,9 +4,8 @@ from .forms import ForName
 from .forms import movelform
 
 
-
 def index(request):
-    return HttpResponse("index.html")
+    return render(request, "index.html")
 
 def calculadora(request):
     return render(request, "calculadora.html")
@@ -27,20 +26,20 @@ def formulario_simples(request):
             print("Name"+form.cleaned_data['name'])
             print("Email"+form.cleaned_data['email'])
             print("Text"+form.cleaned_data['text'])
-    return render(request,'form_simples.html',{'form':form})
+    return render(request,'movel.html',{'form':form})
 
 def formulario_movel(request):
     form = movelform()
     
     if request.method == 'POST':
         
-        form = form.movelform(request.POST)
+        form = movelform(request.POST)
         if form.is_valid():
-            form.save
+            form.save()
         else:
             print("Deu erro")
             
-    return render(request,'form_simples.html',{'form':form})
+    return render(request,'movel.html',{'form':form})
 
         
     
