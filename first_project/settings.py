@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'first_app.apps.FirstAppConfig',
+    'debug_toolbar.middleware.DebugTollbarMiddleware'
 ]
 
 MIDDLEWARE = [

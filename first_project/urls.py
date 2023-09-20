@@ -17,9 +17,16 @@ Including another URLconf
 from django.urls import path, include
 from first_app import views
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('first_app/', include('first_app.urls'))
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    url patterns = [
+        path('__debug__/', include(debug_toolbar.urls))
+    ] + urlpatterns 
