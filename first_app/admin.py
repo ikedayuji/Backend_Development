@@ -3,7 +3,7 @@
 
 #urlpatterns = [
 #    path('admin/', admin.site.urls),
-#    path('', include('first_app.urls')), 
+#    path('', include('first_app.urls')),
 #]
 
 from django.contrib import admin
@@ -16,19 +16,19 @@ admin.site.register(Movel)
 admin.site.register(Cliente)
 admin.site.register(Filme)
 
-class Filme(models.Model):
-    titulo = models.CharField(max_length=256)
-    duracao = models.PositiveIntegerField
-    ano_lancamento = models.PositiveIntegerField
-    
-class Cliente(models.Model):
-    nome = models.CharField(max_length=256)
-    sobrenome = models.CharField(max_length=256)
-    telefone = models.PositiveIntegerField()
-
 class FilmeAdmin(admin.ModelAdmin):
-    
-    fields = ['ano_lancamento', 'titulo', 'duracao']    
+
+    fields = ['ano_lancamento', 'titulo', 'duracao']
     search_fields = ['titulo', 'ano_lancamento']
     list_filter = ['ano_lancamento', 'titulo', 'duracao']
     list_display = ['ano_lancamento', 'titulo','duracao']
+
+
+
+
+
+
+
+
+
+
