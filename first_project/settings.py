@@ -32,6 +32,8 @@ ALLOWED_HOSTS = [
     'ikedayuji.pythonanywhere.com'
 ]
 
+INTERNAL_IPS = ['127.0.0.1']
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
@@ -43,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'first_app.apps.FirstAppConfig',
-    'debug_toolbar.middleware.DebugTollbarMiddleware'
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'first_project.urls'

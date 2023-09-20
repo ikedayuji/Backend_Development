@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Topic(models.Model):
     name = models.CharField(max_length=100)
 
@@ -24,3 +25,12 @@ class Movel(models.Model):
     def __str__(self):
         return self.name
     
+class Filme(models.Model):
+    titulo = models.CharField(max_length=256)
+    duracao = models.PositiveIntegerField
+    ano_lancamento = models.PositiveIntegerField
+    
+class Cliente(models.Model):
+    nome = models.CharField(max_length=256)
+    sobrenome = models.CharField(max_length=256)
+    telefone = models.PositiveIntegerField()
