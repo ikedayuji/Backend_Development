@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import ForName
 from .forms import movelform
-
+from django.views.generic import View
+from django.views.generic import TemplateView
 
 def index(request):
     return render(request, "index.html")
@@ -41,5 +42,22 @@ def formulario_movel(request):
             
     return render(request,'movel.html',{'form':form})
 
+def hello(request):
+    info = {"info": "Olá Mundo vindo do servidor"}
+    return render(request, 'index.html', info)
+
+class Helpp(View):
+    def get(self, request):
+        return HttpResponse("Class-based views em funcionamento!")
         
+class IndexView(TemplateView):
+    template_name = 'index.html'
     
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['info'] = "Olá Mundo vindo do servidor"
+        return contexto
+    
+class EscolaListView(ListView):
+    model = Escola
+    template_name = 'app1/escola_list.html'

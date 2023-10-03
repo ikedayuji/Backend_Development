@@ -31,5 +31,33 @@ class Filme(models.Model):
     
 class Cliente(models.Model):
     nome = models.CharField(max_length=256)
-    sobrenome = models.CharField(max_length=256)
+    sobrenome = models.CharField(max_length=10)
     telefone = models.PositiveIntegerField()
+    
+class Escola(models.Model):
+    nome = models.Charfield(max_length=256)
+    diretor = models.Charfield(max_length=256)
+    endereco = models.Charfield(max_length=256)
+    
+    def __str__(self) -> str:
+        return self.nome
+
+class Estudante(models.Models):
+    nome = models.CharField(max_length=256)
+    idade = models.PositiveBigIntegerField()
+    escola = models.ForeignKey(Escola, related_name=256)
+    
+    def __str__(self):
+        return self.nome
+    
+class EscolaDetailView(DetailView):
+    model = Escola
+    context_object_name = 'escola_details'
+    
+class EscolaCreateView(CreateView):
+    model = Escola
+    fields = ("nome", "diretor", "endereco")
+    
+class EscolaUpdateView(UpdateView):
+    model = Escola
+    fields = ("nome", "diretor")
