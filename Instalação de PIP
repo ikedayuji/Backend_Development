@@ -1,3 +1,11 @@
+Comando py 
+
+python manage.py migrate
+python manage.py makemigrations app1
+python manage.py migrate
+
+Instalação pip
+
 pip install django
 pip install django-debug-toolbar
 pip install django-crispy-forms
