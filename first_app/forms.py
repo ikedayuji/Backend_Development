@@ -7,7 +7,7 @@ def check_for_z(value):
                 raise forms.ValidationError("NAME NEEDS TO START WITH Z")
 
 
-class ForName(forms.Form):
+class MyForm(forms.Form):
         name = forms.CharField()
         email = forms.EmailField()
         text = forms.CharField(widget=forms.Textarea)

@@ -1,16 +1,23 @@
+from django.db import models
+from django import forms
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from .forms import ForName
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .forms import MyForm
 from .forms import movelform
 from .models import Escola
 from django.views.generic import View
 from django.views.generic import TemplateView
 from django.views.generic import ListView
 from django.views.generic import CreateView
+from django.views.generic import DetailView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
-from django.views.generic import DetailView
 
 
 def index(request):
@@ -23,11 +30,11 @@ def parana(request):
     return render(request, "parana.html")
 
 def formulario_simples(request):
-    form = ForName()
+    form = MyForm()
     
     if request.method == 'POST':
         
-        form = form.FormName(request.POST)
+        form = MyForm(request.POST)
         
         if form.is_valid():
             
@@ -85,4 +92,49 @@ class EscolaUpdateView(UpdateView):
 class EscolaDeleteView(DeleteView):
     model = Escola
     sucess_url = reverse_lazy("app1:escola-list")
+    
+class UsuarioInfoPerfil(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    site_portfolio = models.URLField(blank=True)
+    foto_perfil = models.ImageField(upload_to='fotos_perfil')
+    
+    def __str__(self):
+        return self.user.username
+    
+class UsuarioInfoPerfilForm(forms.ModelForm):
+    class Meta():
+        model = UsuarioInfoPerfil
+        fields = ('site_portfolio','foto_perfil')
+        
+class UserForm(forms.ModelForm):
+    senha = forms.CharField(widget=forms.PasswordInput())
+    
+    class Meta():
+        model = User
+        fields = ('username', 'email','password')    
 
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('app1/castrar_usuario.html')
+    else:
+        form = UserCreationForm()
+    return render(request, 'app1/cadastrar_usuario.html', {'form': form})
+
+def login_usuario(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('app1/login_usuario.html')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'app1/login_usuario.html', {'form': form})
+
+def logout_usuario(request):
+    logout(request)
+    return redirect('app1/logout_usuario.html')

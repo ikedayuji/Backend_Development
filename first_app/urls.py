@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from  django.conf import settings
+from first_app import views
 app_name = 'first_app'
 
 urlpatterns = [
@@ -14,4 +15,7 @@ urlpatterns = [
     path('escola/create', views.EscolaCreateView.as_view(), name='escola-create'),
     path('escola/update/int:pk/', views.EscolaUpdateView.as_view(), name='escola-update'),
     path('escola/delete/<int:pk>/', views.EscolaDeleteView.as_view(), name='escola-delete'),
-    ]
+    path('cadastrar/', views.cadastrar_usuario, name='cadastrar'),
+    path('login/', views.login_usuario, name='login'),
+    path('logout/', views.logout_usuario, name='logout'),
+]
