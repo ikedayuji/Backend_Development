@@ -1,8 +1,9 @@
-<h1>Excluir permanentemente {{esola.nome}}?</h1>
+<h1>Excluir permanentemente {{escola.nome}}?</h1>
 
 <form method="post">
     {% csrf_token %}
     <input type="submit class="btn btn-danger" value="Excluir">
-    <a href="{% url 'app1:escola-detail' pk=escola.pk %}">Cancelar</a>
+    <a href="{% url 'app1:escola-detail' pk=escola.pk%}">Cancelar</a>
 
 </form>
+

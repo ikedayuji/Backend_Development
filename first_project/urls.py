@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('first_app/', include('first_app.urls')),
-    path('', views.HelloView.asview())
 ]
 
 if settings.DEBUG:

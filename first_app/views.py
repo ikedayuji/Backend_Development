@@ -1,9 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from .forms import ForName
 from .forms import movelform
+from .models import Escola
 from django.views.generic import View
 from django.views.generic import TemplateView
+from django.views.generic import ListView
+from django.views.generic import CreateView
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
+from django.views.generic import DetailView
+
 
 def index(request):
     return render(request, "index.html")
@@ -61,3 +69,20 @@ class IndexView(TemplateView):
 class EscolaListView(ListView):
     model = Escola
     template_name = 'app1/escola_list.html'
+
+class EscolaCreateView(CreateView):
+    model = Escola
+    fields = ("nome", "diretor", "endereco")
+    
+class EscolaDetailView(DetailView):
+    model = Escola
+    context_object_name = 'escola_details'
+    
+class EscolaUpdateView(UpdateView):
+    model = Escola
+    fields = ("nome", "diretor")
+    
+class EscolaDeleteView(DeleteView):
+    model = Escola
+    sucess_url = reverse_lazy("app1:escola-list")
+
