@@ -18,4 +18,5 @@ urlpatterns = [
     path('cadastrar/', views.cadastrar_usuario, name='cadastrar'),
     path('login/', views.login_usuario, name='login'),
     path('logout/', views.logout_usuario, name='logout'),
+
 ]
