@@ -19,6 +19,9 @@ from django.views.generic import CreateView
 from django.views.generic import DetailView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
+from .models import Grafico
+
+
 
 
 def index(request):
@@ -139,3 +142,18 @@ def login_usuario(request):
 def logout_usuario(request):
     logout(request)
     return redirect('app1/logout_usuario.html')
+
+def home(request):
+    exibirCartoes = True  # Altere isso de acordo com a lógica do seu projeto
+    graficosData = Grafico.objects.all()  # Obtém todos os objetos de Grafico
+
+    context = {
+        'exibirCartoes': exibirCartoes,
+        'graficosData': graficosData,
+    }
+    
+    return render(request, 'jornadahome.html')
+
+def card_list(request):
+    cards = Card.objects.all()
+    return render(request, 'jornadahome.html', {'cards': cards})

@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from  django.conf import settings
 from first_app import views
+from .views import card_list
+
+
 app_name = 'first_app'
 
 urlpatterns = [
@@ -18,5 +21,6 @@ urlpatterns = [
     path('cadastrar/', views.cadastrar_usuario, name='cadastrar'),
     path('login/', views.login_usuario, name='login'),
     path('logout/', views.logout_usuario, name='logout'),
-
+    path('jornada/', views.home, name='jornadahome'),
+    path('card-list/', card_list, name='card_list'),
 ]

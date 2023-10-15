@@ -50,3 +50,17 @@ class Estudante(models.Model):
     def __str__(self):
         return self.nome
 
+class Grafico(models.Model):
+    titulo = models.CharField(max_length=255)
+    conteudo = models.TextField()
+
+    def __str__(self):
+        return self.titulo
+
+class Card(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image_path = models.CharField(max_length=200)  # Caminho para a imagem
+
+    def __str__(self):
+        return self.title
