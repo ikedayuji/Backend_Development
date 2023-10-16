@@ -1,76 +1,105 @@
 <!DOCTYPE html>
-
-{% block content %}
 <html>
 <head>
     <title>jornada</title>
-<style>.cabecalho {
-    min-height: 10vh;
-  }
-  
-  .body {
-    min-height: 80vh;
-  }
-  
-  .rodape {
-    min-height: 10vh;
-  }
-  
-  .bordaDireito{
-    border-style: solid;
-  }
-  
-  .bordamenuacesso{
-    border-style: solid;
-  }
-  
-  .bordatempo{
-    border-style: solid;
-  }
-  
-  .bordadatahora{
-    border-style: solid;
-  }
-  
-  .bordacabecalho{
-    border-style: solid;
-  }
-  
-  .bordausuario{
-    border-style: solid;
-  }
-  
-  .bordaconteudodireita{
-    border-style: solid;
-  }
-  
-  
-</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container-fluid {
+            flex: 1;
+            display: flex;
+        }
+        .cabecalho {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .barra-navegacao {
+            display: flex;
+            background: white; /* Alterado para branco */
+            padding: 10px;
+        }
+        .barra-navegacao button {
+            width: 150px;
+            height: 50px;
+            background: white; /* Alterado para branco */
+            color: #000080; /* Alterado para azul escuro */
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .conteudo {
+            flex: 1;
+            display: flex;
+        }
+        .menu-principal {
+            background: #ffff99;
+            padding: 10px;
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-principal ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu-principal ul li {
+            padding: 5px;
+            border-bottom: 1px solid #000;
+        }
+        .empresa {
+            flex: 1;
+            background: #fff;
+            padding: 10px;
+        }
+        .rodape {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="nebulous white cabecalho bordacabecalho">
-            <div class="d-flex align-items-center">
-                <button class="btn btn-primary" style="width:100px">Home</button>
+        <div class="cabecalho">
+            <div class="barra-navegacao">
+                <button class="btn btn-primary">Home</button>
+                <button class="btn btn-primary">Voltar</button>
+                <button class="btn btn-primary">Tela Atual</button>
+                <button class="btn btn-primary">Gráficos</button>
+                <button class="btn btn-primary">Alarmes</button>
             </div>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-primary" style="width:100px">Voltar</button>
+        </div>
+        <div class="conteudo">
+            <div class="menu-principal">
+                <h3>Menu Principal</h3>
+                <ul>
+                    <li>Cadastro</li>
+                    <li>A Produzir</li>
+                    <li>Produzido</li>
+                    <li>Batelada</li>
+                    <li>Silos</li>
+                    <li>Sair</li>
+                </ul>
             </div>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-primary" style="width:100px">Tela Atual</button>
-            </div>
-            <div class="d-flex align-items-center">
-                <button style="width:100px">Gráficos</button>
-            </div>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-primary" style="width:100px">Alarmes</button>
+            <div class="empresa">
+                <h3>Usipav - Usinagem de Asfalto Ltda</h3>
+                <!-- Conteúdo da empresa -->
             </div>
         </div>
     </div>
-    <div class="nebulous white bordatempo">Previsão de Tempo:</div>
-    <div class="nebulous white bordaDireito">Direitos Reservados: UseIA Engenharia de Software</div>
-    <div class="nebulous white bordausuario">Usuário:</div>
-    <div class="nebulous white bordadatahora">Data/Hora:</div>
+    <div class="rodape">
+        <div class="bg-warning bordatempo">Previsão de Tempo:</div>
+        <div class="bg-warning bordaDireito">Direitos Reservados: UseIA Engenharia de Software</div>
+        <div class="bg-warning bordausuario">Usuário:</div>
+        <div class="bg-warning bordadatahora">Data/Hora:</div>
+    </div>
 </body>
 </html>
-{% endblock %}
