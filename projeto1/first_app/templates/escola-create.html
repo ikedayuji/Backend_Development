@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" class 'btn btn-primary' value="Cadastrar">
+</form>
+<a class="nav-item nav-link" href="{% url 'app1:escola-create' %}"> Cadastrar Escola</a>

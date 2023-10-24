@@ -1,0 +1,14 @@
+<div  class="jumbtrom">
+    <h2>Detalhes da Escola:</h2>
+
+    <p>Número de ID: {{escola_details.id}}</p>
+    <p>Nome: {{ escola_details.nome}}</p>
+    <p>Diretor: {{escola_details.diretor}}</p>
+    <p>Endereço: {{escola_details.endereco}}</p>
+
+    <h3> Estudantes:</h3>
+    {%for estudante in escola_details.estudantes.all%}
+    <p>{{ estudante.nome }} que tem {{estudante.idade}} anos.</p>
+    {% endfor %}
+
+</div>

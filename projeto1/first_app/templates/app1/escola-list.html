@@ -1,0 +1,8 @@
+<h1>Página de Lista das Escolas!</h1>
+<ol>
+    {% for escola in escola_list %}
+        <h2>
+            <li><a href="{{escola.id}}/">{{escola.name}} </a></li>
+        </h2>
+{% endfor%}
+</ol>
