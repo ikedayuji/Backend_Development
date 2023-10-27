@@ -1,6 +1,12 @@
 # Projeto_Backend_Development
 Inicialização do projeto, comandos do vscode no terminal cmd: 
 - cd first_app
+
+Criação de virtualização
+- py -m pip install virtualenv (instalação do virtualenv)
+- py -m virtualenv nome (criar nome da virtualização)
+- py -m projeto1\Scripts\activate (Ativar a virtualização)
+
   
 Instalação de pips para ser baixados no projeto
 - pip install django
