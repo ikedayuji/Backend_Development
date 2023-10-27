@@ -15,5 +15,12 @@ Instalação de pips para ser baixados no projeto
 - pip install bcrypt
 - pip install django[argon2]
 
-Comando para inicializar o projeto:
+Outros comandos python:
+
+- python manage.py migrate
+- python manage.py collectstatic
+- python manage.py makemigrations app1
+- python manage.py migrate
+
+Comando para inicializar o projeto
 - python manage.py runserver
