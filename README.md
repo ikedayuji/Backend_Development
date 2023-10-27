@@ -2,7 +2,7 @@
 Inicialização do projeto, comandos do vscode no terminal cmd: 
 - cd first_app
   
-Instalação de pips para ser instalados no projeto
+Instalação de pips para ser baixados no projeto
 - pip install django
 - pip install django-debug-toolbar
 - pip install django-crispy-forms
